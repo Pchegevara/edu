@@ -7,12 +7,13 @@ def app(environ, start_response):
         
         i=1
         s='\n'
+        body = str()
         
         for key, value in data.items():
-            if i!=data.len(): 
-                body=key + '=' + value + '\n'
+            if i!=len(data):
+                body+=key + '=' + ''.join(value) + '\n'
             else: 
-                body=key + '=' + value    
+                body+=key + '=' + ''.join(value)
         
         status = '200 OK'
         headers = [
@@ -20,4 +21,4 @@ def app(environ, start_response):
             ('Content-Length', str(len(body)))
         ]
         start_response(status, headers)
-        return iter([body])
+        return iter([body.encode()])
