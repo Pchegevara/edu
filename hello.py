@@ -1,22 +1,9 @@
-from cgi import parse_qs
-
 def app(environ, start_response):
         #business logic
         
-        #data = parse_qs(environ['QUERY_STRING'])
-      
-	data =	environ['QUERY_STRING'].replace('&','\n')
-	body=data	
-
-        #i=1
-        #s='\n'
-        #body = str()
-        
-        #for key, value in data.items():
-        #    if i!=len(data):
-        #        body+=key + '=' + ''.join(value) + '\n'
-        #    else: 
-        #        body+=key + '=' + ''.join(value)
+      	body =	environ['QUERY_STRING'].replace('&','\n')
+	
+  
         
         status = '200 OK'
         headers = [
